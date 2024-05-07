@@ -60,7 +60,7 @@
 
   - name: demon relode
     ansible.builtin.systemd_service:
-      daemon_reload: 
+      daemon_reload: true
   
   - name: Start and enable backend server
     ansible.builtin.service:
