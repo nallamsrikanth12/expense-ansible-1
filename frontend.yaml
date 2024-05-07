@@ -16,10 +16,11 @@
       path: /usr/share/nginx/html
       state: absent
 
-  - name; create a directory
+  - name: create a directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
       state: directory
+
   - name:  download code and unzip the code
     ansible.builtin.unarchive:
       src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
