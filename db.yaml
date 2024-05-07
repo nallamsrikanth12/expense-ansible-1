@@ -2,9 +2,9 @@
   hosts: db
   become: yes
   vars:
-    login_password: sql_root_password
     login_host: db.srikantheswar.online
   vars_prompt:
+  - name: sql_root_password
     prompt: enter the db password
     private: no
 
