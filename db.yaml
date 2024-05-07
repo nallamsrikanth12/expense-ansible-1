@@ -32,9 +32,5 @@
       msg: "output of {{my_sql_password}}
 
 
-  - name: set root password
-    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{login_password}}"
-    when: my_sql_password.failed true
-
   
 
