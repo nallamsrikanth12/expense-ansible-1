@@ -29,7 +29,7 @@
 
   - name: check tthe output of my_sql_password
     ansible.builtin.debug:
-      msg: "output of {{my_sql_password}}
+      msg: "output of {{my_sql_password}}"
 
 
   
