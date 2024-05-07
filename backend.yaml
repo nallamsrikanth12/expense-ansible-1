@@ -52,6 +52,6 @@
       state: import
 
   - name: restarted backend
-    ansible.builltin.service:
+    ansible.builtin.service:
       name: backend
       state: restarted
