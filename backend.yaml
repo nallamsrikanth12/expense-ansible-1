@@ -63,10 +63,10 @@
       daemon_reload: 
   
   - name: Start and enable backend server
-      ansible.builtin.service:
-        name: backend
-        state: started
-        enabled: yes
+    ansible.builtin.service:
+      name: backend
+      state: started
+      enabled: yes
 
 
   - name: restarted backend
