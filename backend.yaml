@@ -69,7 +69,4 @@
       enabled: yes
 
 
-  - name: restarted backend
-    ansible.builtin.service:
-      name: backend
-      state: restarted
+  
