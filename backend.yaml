@@ -17,6 +17,13 @@
     - nodejs
     - mysql
 
+  - name: install dependencies  and libraries oy pymysql
+    ansible.builtin.pip:
+      name:
+      - pymysql
+      - crypotography
+      executable: pip3.9 # this is python version
+
   - name: create a user
     ansible.builtin.user:
       name: expense
