@@ -6,6 +6,7 @@
     login_host: db.srikantheswar.online
   vars_prompt:
     prompt: enter the db password
+    private: no
 
   tasks:
   - name: mysql-server
