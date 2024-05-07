@@ -1,8 +1,40 @@
 - name: configure the db server
   hosts: db
   become: yes
+  vars:
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: db.srikantheswar.online
+
   tasks:
   - name: mysql-server
     ansible.builtin.dnf:
       name: mysql-server
       state: latest
+
+  - name: start and enabled the server
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+
+  - name: check  set up the root password or not
+    community.mysql.mysql_info:
+      login_user: "{{login_user}}"
+      login_password: "{{login_password}}"
+      login_host: "{{login_host}}"
+      filter: version
+    register: my_sql_password
+    ignore_errors: true
+
+  - name: check tthe output of my_sql_password
+    ansible.builtin.debug:
+      msg: "output of {{my_sql_password}}
+
+
+  - name: set root password
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{login_password}}"
+    when: my_sql_password.failed true
+
+  
+
