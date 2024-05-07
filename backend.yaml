@@ -21,7 +21,7 @@
     ansible.builtin.pip:
       name:
       - pymysql
-      - crypotography
+      - cryptography
       executable: pip3.9 # this is python version
 
   - name: create a user
