@@ -1,0 +1,7 @@
+- name: configure the db server
+  hosts: db
+  become: yes
+  tasks:
+  - name: mysql-server
+      name: mysql-server
+      state: latest
