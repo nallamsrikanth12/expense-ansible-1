@@ -2,9 +2,10 @@
   hosts: db
   become: yes
   vars:
-    login_user: root
-    login_password: ExpenseApp@1
+    login_password: sql_root_password
     login_host: db.srikantheswar.online
+  vars_prompt:
+    prompt: enter the db password
 
   tasks:
   - name: mysql-server
@@ -21,7 +22,7 @@
   - name: check  set up the root password or not
     community.mysql.mysql_info:
       login_user: "{{login_user}}"
-      login_password: "{{login_password}}"
+      login_password: "{{sql_root_password}}"
       login_host: "{{login_host}}"
       filter: version
     register: my_sql_password
@@ -32,7 +33,7 @@
       msg: "output of {{my_sql_password}}"
 
   - name: set root password
-    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{login_password}}"
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{sql_root_password}}"
     when: my_sql_password.failed
 
 
