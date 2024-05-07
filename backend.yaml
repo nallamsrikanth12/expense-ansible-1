@@ -10,3 +10,7 @@
     ansible.builtin.dnf:
       name: nodejs
       state: latest
+
+  - name: create a user
+    ansible.builtin.user:
+      name: expense
