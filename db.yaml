@@ -15,7 +15,7 @@
         state: latest
 
     - name: install libraies and depenencies og pymysql
-      anible.builtin.pip:
+      ansible.builtin.pip:
         name:
         - PyMysql
         - cryptography
