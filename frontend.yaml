@@ -13,7 +13,7 @@
       enabled: yes
   - name: remove the file
     ansible.builtin.file:
-      path: /usr/share/nginx/htm
+      path: /usr/share/nginx/html
       state: absent
 
   - name; create a directory
