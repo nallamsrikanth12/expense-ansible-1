@@ -3,5 +3,6 @@
   become: yes
   tasks:
   - name: mysql-server
+    ansible.builtin.dnf:
       name: mysql-server
       state: latest
