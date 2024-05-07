@@ -6,13 +6,14 @@
   vars_prompt:
     - name: sql_root_password
       prompt: "Enter the MySQL root password"
-      private: yes
+      private: no
 
   tasks:
     - name: Install MySQL server
       ansible.builtin.dnf:
         name: mysql-server
         state: latest
+
     - name: install libraies and depenencies og pymysql
       anible.builtin.pip:
         name:
@@ -20,8 +21,7 @@
         - cryptography
         executable: pip3.9 # this is python version
        
-      executable: pip3.9 # this is python version
-
+      
     - name: Start and enable MySQL server
       ansible.builtin.service:
         name: mysqld
